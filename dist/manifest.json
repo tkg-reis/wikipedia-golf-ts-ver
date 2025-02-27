@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "wikipedia golf ts-ver",
+  "version": "1.0",
+  "description": "wikipedia word chain",
+  "action": {
+    "default_popup": "views/index.html",
+    "default_icon": "images/wikipedia-golf_ver2.png"
+  },
+  "permissions": ["tabs", "storage", "notifications", "alarms"],
+  "background": {
+    "service_worker": "backend/backend.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ja.m.wikipedia.org/wiki/*",
+        "https://ja.wikipedia.org/wiki/*"
+      ],
+      "js": ["content/dom.js", "content/content.js"],
+      "type": "module"
+    }
+  ]
+}
