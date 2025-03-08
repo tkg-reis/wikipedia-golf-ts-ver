@@ -5,16 +5,23 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup"
+    "build:scss": "sass scss/style.scss dist/css/style.css",
+    "build:css": "pnpm run build:scss && postcss dist/css/style.css -o dist/css/style.css",
+    "watch:css": "concurrently \"sass --watch scss/style.scss dist/css/style.css\" \"postcss dist/css/style.css -o dist/css/style.css --watch\"",
+    "build:js": "tsup"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
     "eslint": "^9.21.0",
     "globals": "^16.0.0",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.85.1",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.25.0"
