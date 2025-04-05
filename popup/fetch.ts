@@ -1,1 +1,1 @@
-const a = fetch("http")
+const a = fetch('http');
