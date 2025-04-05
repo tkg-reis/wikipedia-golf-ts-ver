@@ -1,1 +1,1 @@
-const popup = "popup"
+const popup = 'popup';
